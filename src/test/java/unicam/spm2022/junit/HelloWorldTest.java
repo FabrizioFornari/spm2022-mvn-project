@@ -112,6 +112,7 @@ public class HelloWorldTest {
 	}
 	
 	@Test
+	@Disabled
 	void failingTest() {
 		fail("Not yet implemented");
 	}
