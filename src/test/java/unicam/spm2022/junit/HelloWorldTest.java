@@ -106,8 +106,13 @@ public class HelloWorldTest {
 
 	@Test
 	@DisplayName("😈")
-	//@Disabled
+	@Disabled
 	void testMain() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void failingTest() {
 		fail("Not yet implemented");
 	}
 
