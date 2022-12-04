@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -49,12 +50,32 @@ class WebDriverManagerTest {
 	}
 
 	@Test
-	//@Disabled
+	@Disabled
 	@Tag("AcceptanceTest")
 	void testMyGitHubAction() {
 		  driver.get(baseUrl);
 	      System.out.println("Title is: "+driver.getTitle());
 	      assertTrue(driver.getTitle().contains("PROS"));
+	}
+	
+	@Test
+	@Tag("AcceptanceTest")
+	//@Disabled
+	void checkThisWebAppTitle() throws InterruptedException {
+		
+		driver.get("http://localhost:8080/spm2022/");
+
+		Thread.sleep(3000);
+		
+		String at = driver.getTitle();
+		String et = "SPM 2022";
+		
+		//System.out.println(at);		
+		Thread.sleep(4000);
+
+		Assert.assertEquals(et,at);
+		
+		
 	}
 
 	
