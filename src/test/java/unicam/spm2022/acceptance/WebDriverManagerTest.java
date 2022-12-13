@@ -39,6 +39,7 @@ class WebDriverManagerTest {
 	void setUp() throws Exception {
 		WebDriverManager.chromedriver().setup();
 	    ChromeOptions options = new ChromeOptions();
+	    options.addArguments("--headless");
 	    driver = new ChromeDriver(options);	
 	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));  
 	}

@@ -31,9 +31,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.restassured.RestAssured;
 
-//import io.restassured.RestAssured;
 
 class AdvancedSeleniumTest {
 
@@ -94,31 +92,6 @@ class AdvancedSeleniumTest {
 	
 
 	
-	@Test
-	@Disabled
-	void takeScreenshot() {
-
-        driver.get("http://pros.unicam.it");
-               
-		WebDriverWait waitTen = new WebDriverWait(driver, null);
-		waitTen.until(ExpectedConditions.titleContains("PROS "));
-        
-        TakesScreenshot scrShot =((TakesScreenshot)driver);
-
-	    //Call getScreenshotAs method to create image file
-	    File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
-
-        //Move image file to new destination
-        File DestFile=new File(projectPath+"/resources/screenshots/"+SrcFile.getName());
-
-        try {
-			Files.copy(SrcFile.toPath(), DestFile.toPath(),StandardCopyOption.REPLACE_EXISTING);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
 	
 	@Test
 	@Disabled
@@ -148,26 +121,7 @@ class AdvancedSeleniumTest {
 
 	  }
 	
-	@Test
-	@Disabled
-	void checkLinkStatus() {
 
-        System.out.println(RestAssured.get("http://pros.unicam.it").statusCode());  
-        Assert.assertEquals(RestAssured.get("http://pros.unicam.it").statusCode(), 200);
-
-	}
-	
-	
-	@ParameterizedTest
-	@Disabled
-	@ValueSource(strings = {"http://pros.unicam.it", "https://www.google.com/"}) // six 
-	void checkLinkListStatus(String links) {
-
-        System.out.println(RestAssured.get(links).statusCode());  
-        Assert.assertEquals(RestAssured.get(links).statusCode(), 200);
-
-	}
-	
 	
 	@Test
 	@Disabled
