@@ -63,10 +63,10 @@ class WebDriverManagerTest {
 	@Tag("AcceptanceTest")
 	@Disabled
 	void checkThisWebAppTitle() throws InterruptedException {
-		WebDriverManager.chromedriver().setup();
+		/*WebDriverManager.chromedriver().setup();
 	    ChromeOptions options = new ChromeOptions();
 	    options.addArguments("--headless");
-	    driver = new ChromeDriver(options);	
+	    driver = new ChromeDriver(options);*/	
 	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		driver.get("http://localhost:8080/spm2022/");
