@@ -14,9 +14,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -61,7 +65,7 @@ class WebDriverManagerTest {
 	
 	@Test
 	@Tag("AcceptanceTest")
-	//@Disabled
+	@Disabled
 	void checkThisWebAppTitle() throws InterruptedException {
 		
 		driver.get("http://localhost:8080/spm2022/");
@@ -78,6 +82,41 @@ class WebDriverManagerTest {
 		
 		
 	}
+	
+	@Test
+	@Disabled
+	  public void rP1() {
+	    driver.get("https://pros.unicam.it:4200/index?returnUrl=%2Fhome");
+	    driver.manage().window().setSize(new Dimension(2560, 1415));
+	    driver.findElement(By.cssSelector(".navbar-nav:nth-child(1) > .nav-item:nth-child(1) > .nav-link")).click();
+	    driver.findElement(By.cssSelector(".row:nth-child(3) > .col-lg-6:nth-child(1) .ng-star-inserted:nth-child(3) .mat-icon:nth-child(1)")).click();
+	    driver.findElement(By.cssSelector(".btn:nth-child(2)")).click();
+	    {
+	      WebElement element = driver.findElement(By.cssSelector(".btn:nth-child(2)"));
+	      Actions builder = new Actions(driver);
+	      builder.moveToElement(element).perform();
+	    }
+	    {
+	      WebElement element = driver.findElement(By.tagName("body"));
+	      Actions builder = new Actions(driver);
+	      builder.moveToElement(element, 0, 0).perform();
+	    }
+	    driver.findElement(By.cssSelector(".btn:nth-child(1)")).click();
+	    {
+	      WebElement element = driver.findElement(By.cssSelector(".btn:nth-child(1)"));
+	      Actions builder = new Actions(driver);
+	      builder.moveToElement(element).perform();
+	    }
+	    {
+	      WebElement element = driver.findElement(By.tagName("body"));
+	      Actions builder = new Actions(driver);
+	      builder.moveToElement(element, 0, 0).perform();
+	    }
+	    driver.findElement(By.cssSelector(".btn:nth-child(3)")).click();
+	    driver.findElement(By.cssSelector(".card-icon > .material-icons")).click();
+	    driver.findElement(By.cssSelector(".nav-item:nth-child(2) p")).click();
+	    driver.findElement(By.cssSelector(".ng-star-inserted:nth-child(1) p")).click();
+	  }
 
 	
 }
